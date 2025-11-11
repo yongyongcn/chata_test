@@ -1,2 +1,0 @@
-transaction_id: TX-4003, Negative amount -10.0
-transaction_id: TX-4006, Negative amount -5.0

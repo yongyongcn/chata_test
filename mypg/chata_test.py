@@ -33,10 +33,7 @@ def main():
     # separate error and valid data
     df_web_error = df_web[ df_web['user_uuid'].isnull() | (df_web['user_uuid'] == '') ]
 
-    # with open('web_error_log.txt', 'w') as f:
-    #     for (index, row) in df_web_error.iterrows():
-    #         f.write( f" {row.split('\n')}" )
-    
+    # write error data to a log file
     df_web_error.to_csv('web_error_log.txt', 
               sep=' ', 
               index=True, 
@@ -61,7 +58,7 @@ def main():
     df_customers = pd.merge( df_trans, df_web_valid ,  on='user_uuid',    how='left' )
     df_customers_error = df_customers[ df_customers['amount']< 0]
     df_customers_valid = df_customers[ df_customers['amount']>= 0]
-
+#  write error transactions to a log file
     with open('transaction_error_log.txt', 'w') as f:
         for (index, row) in df_customers_error.iterrows():
             f.write( f"transaction_id: {row['transaction_id']}, Negative amount {row['amount']}\n" )
