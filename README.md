@@ -35,14 +35,7 @@ Run:
 python data_pipeline.py
 ```
 
-## Running tests / Debugging
-
-Run pytest from the project root:
-```bash
-python -m pytest -v -s
-```
-- `-v` for verbose
-- `-s` to show print() output
+## Debugging
 
 To debug a module or file in VS Code, use the Run and Debug configurations. Ensure `${workspaceFolder}` is on `PYTHONPATH` so package imports like `mypg.main` resolve.
 
